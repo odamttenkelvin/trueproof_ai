@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-tensorflow
+tensorflow-cpu==2.14.0
 pydantic
 python-multipart
 python-docx
