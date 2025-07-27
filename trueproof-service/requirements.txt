@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+tensorflow
+pillow
+numpy
+resemblyzer
+openai-whisper
+torch
+librosa
+fpdf

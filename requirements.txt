@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+tensorflow
+pydantic
+python-multipart
+python-docx
+reportlab
+pdfkit
+requests
+resampy
+ffmpeg-python
+openai-whisper
+resemblyzer
