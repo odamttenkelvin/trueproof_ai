@@ -1,26 +1,20 @@
 # Use official Python image
 FROM python:3.10
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set work directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y ffmpeg git && apt-get clean
+# Copy the backend service folder into the container
+COPY trueproof-service/ /app
 
-# Install Python dependencies
+# Copy root requirements.txt (or use the one in service if different)
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy project files
-COPY . .
+# Install dependencies
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Expose port
 EXPOSE 8000
 
-# Start FastAPI server
-CMD ["uvicorn", "trueproof_service.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-
+# Start FastAPI with uvicorn
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
